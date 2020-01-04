@@ -1,0 +1,53 @@
+<!DOCTYPE>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <title>留言板</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+</head>
+<style>
+
+</style>
+<body>
+	
+     <div class="page-container">
+        <h1>留言板</h1>
+		<form action="/company2/public/index/write/write" class="message_form" method="post">
+		    <input type="text" name="message_title" class="input" class="title" placeholder="标题">
+		    <textarea name="message_content" class="message_content" class="input" placeholder="请输入留言内容" rows="5"></textarea>
+		    <button type="submit" class="submit">提交留言</button>
+		</form>
+		
+			<table>
+				<th>
+					<td>标题</td><td>内容</td><td>时间</td>
+				</th>
+				{volist name="list" id="vo"}
+				<tr>
+					<td>{$vo.message_title}</td><td>{$vo.message_content}</td><td>{$vo.lastdate}</td>
+				</tr>
+				{/volist}
+			</table>
+		
+
+
+	</div>
+
+    <script src="/company2/public/static/assets/js/supersized.3.2.7.min.js"></script>
+    <script src="/company2/public/static/assets/js/scripts.js"></script>
+	<script>
+		var mydate = new Date();
+		var mytime=mydate.toLocaleString(); 
+		$("#review_time").html(mytime);
+		if($(window).height()==$(document).height()){
+	        $(".navbar-bottom").addClass("navbar-fixed-bottom");
+	      }
+	      else{
+	        $(".navbar-bottom").removeClass(" navbar-fixed-bottom");
+	      }
+	</script>
+
+</div>
+</body>
+</html>

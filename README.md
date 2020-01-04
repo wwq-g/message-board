@@ -1,2 +1,2 @@
-# message-board-
-留言板
+# company2
+简易thinkphp留言板
